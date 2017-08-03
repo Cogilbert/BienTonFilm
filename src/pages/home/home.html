@@ -7,29 +7,17 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-card>
-          <img [src]="movie.poster_path"/>
-          <div class="card-title">São Paulo</div>
-          <div class="card-subtitle">41 Listings</div>
+
+  <ion-grid> 
+    <ion-row *ngFor = "let movie of test">
+      <ion-col *ngFor = "let m of movie">
+        <ion-card class="card">
+          <img [src]="m.poster_path_formatted"/>
+          <!-- <div class="card-title">coucou</div>
+          <div class="card-subtitle">41 Listings</div> -->
         </ion-card>
       </ion-col>
-      <ion-col>
-        2 of 2
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        1 of 3
-      </ion-col>
-      <ion-col>
-        2 of 3
-      </ion-col>
-      <ion-col>
-        3 of 3
-      </ion-col>
-    </ion-row>
-</ion-grid>
+    </ion-row>  
+  </ion-grid>
+
 </ion-content>
