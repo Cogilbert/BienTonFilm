@@ -11,7 +11,7 @@
   <ion-grid> 
     <ion-row *ngFor = "let movie of test">
       <ion-col *ngFor = "let m of movie">
-        <ion-card class="card">
+        <ion-card class="card" (click)="showMovieDetais(m.id)">
           <img [src]="m.poster_path_formatted"/>
           <!-- <div class="card-title">coucou</div>
           <div class="card-subtitle">41 Listings</div> -->

@@ -1,18 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { TMDbService } from '../../services/movieapi.service';
-//import { MovieApiDetails } from '../../models/movieapi-details.model'
 import { MovieApiPopular } from '../../models/movieapi-popular.model'
 
-
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  //movie : MovieApiDetails = new MovieApiDetails();
   movies : MovieApiPopular = new MovieApiPopular();
   test : any[];
 
@@ -59,6 +57,11 @@ export class HomePage {
       this.movies = movieFetched;
       console.log(this.test);
     });
+  }
+
+  showMovieDetais(idMovie : number)
+  {
+    this.navCtrl.push("MoviePage", {id : idMovie})
   }
 
 }

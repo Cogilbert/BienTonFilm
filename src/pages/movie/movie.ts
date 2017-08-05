@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the MoviePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { TMDbService } from '../../services/movieapi.service';
+import { MovieApiDetails } from '../../models/movieapi-details.model'
+
 
 @IonicPage()
 @Component({
@@ -15,11 +12,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MoviePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  movie : MovieApiDetails = new MovieApiDetails();
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MoviePage');
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tmdbService: TMDbService) {
+    
+    let id = this.navParams.get("id");
+    console.log(id);
 
+    this.tmdbService.getMoviesDetails(id)
+      .then(movieFetched => {
+        if(movieFetched.poster_path != undefined && movieFetched.poster_path != "")
+        {
+          movieFetched.poster_path_formatted = "https://image.tmdb.org/t/p/w500" + movieFetched.poster_path
+        }
+        else{
+          movieFetched.poster_path_formatted = "";
+        }
+
+      this.movie = movieFetched;
+      console.log(this.movie);
+    });
+  }
 }

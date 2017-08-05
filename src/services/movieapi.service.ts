@@ -6,7 +6,7 @@ import { Http }         from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
-//import { MovieApiDetails } from '../models/movieapi-details.model'
+import { MovieApiDetails } from '../models/movieapi-details.model'
 import { MovieApiPopular } from '../models/movieapi-popular.model'
 
 // Models
@@ -29,6 +29,17 @@ export class TMDbService {
         .toPromise()
         //.then(res => res.json() as MovieApiDetails)
         .then(res => res.json() as MovieApiPopular)
+        .catch(err => console.log("Une erreur est survenue " + err))
+    }
+
+    public getMoviesDetails(id : number) : any
+    {
+        const url = `${this.baseUrl}movie/${id}?api_key=${this.apiKey}&language=fr-FR`;
+
+        return this.http.get(url)
+        .toPromise()
+        .then(res => res.json() as MovieApiDetails)
+        //.then(res => res.json() as MovieApiPopular)
         .catch(err => console.log("Une erreur est survenue " + err))
     }
 }
