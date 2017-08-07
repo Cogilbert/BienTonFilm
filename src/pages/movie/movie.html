@@ -10,18 +10,28 @@
 
 <ion-content style="background-color: black">
   <ion-list no-lines text-wrap>
+
     <ion-item class="item-content">
       <img [src] = "movie.poster_path_formatted">
     </ion-item>
+
     <ion-item class="item-content">
-      <h2>{{movie.release_date}}</h2>
+      <ion-grid>
+        <ion-row>
+          <ion-col justify-content-end>Date de sortie: </ion-col>
+          <ion-col justify-content-start>{{movie.release_date}}</ion-col>
+        </ion-row>
+      </ion-grid> 
     </ion-item>
+
     <ion-item class="item-content">
       <h3>{{movie.overview}}</h3>
     </ion-item>
+
     <ion-item class="item-content">
-      <rating [(ngModel)]="movie.vote_average" ></rating>
+      <p><rating [(ngModel)]="movie.vote_average_fivestar"></rating></p>
       <h4>{{movie.vote_average}}</h4>
     </ion-item>
+
   </ion-list>
 </ion-content>

@@ -29,6 +29,8 @@ export class MoviePage {
           movieFetched.poster_path_formatted = "";
         }
 
+        movieFetched.vote_average_fivestar = movieFetched.vote_average/2; 
+
       this.movie = movieFetched;
       console.log(this.movie);
     });
