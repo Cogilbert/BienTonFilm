@@ -16,21 +16,34 @@
     </ion-item>
 
     <ion-item class="item-content">
+      <p>Date de sortie: {{movie.release_date}}</p>
+      <!-- <ion-grid>
+        <ion-row justify-content-end>
+          <ion-col >Date de sortie: {{movie.release_date}}</ion-col>
+          <ion-col>{{movie.release_date}}</ion-col>
+        </ion-row>
+      </ion-grid>  -->
+    </ion-item>
+
+    <ion-item class="item-content">
       <ion-grid>
-        <ion-row>
-          <ion-col justify-content-end>Date de sortie: </ion-col>
-          <ion-col justify-content-start>{{movie.release_date}}</ion-col>
+        <ion-row justify-content-end>
+          <ion-col >Synopsis:</ion-col>
         </ion-row>
       </ion-grid> 
     </ion-item>
 
     <ion-item class="item-content">
-      <h3>{{movie.overview}}</h3>
+      <ion-grid>
+        <ion-row justify-content-end>
+          <ion-col>{{movie.overview}}</ion-col>
+          <!-- <ion-col><h3>{{movie.overview}}</h3></ion-col> -->
+        </ion-row>
+      </ion-grid> 
     </ion-item>
 
     <ion-item class="item-content">
-      <p><rating [(ngModel)]="movie.vote_average_fivestar"></rating></p>
-      <h4>{{movie.vote_average}}</h4>
+      <p> Critique : <rating [(ngModel)]="movie.vote_average_fivestar"></rating> ({{movie.vote_average}}/10)</p>
     </ion-item>
 
   </ion-list>
