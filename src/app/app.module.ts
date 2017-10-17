@@ -8,14 +8,10 @@ import { TMDbService } from '../services/movieapi.service';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
-    //HomePage
+    MyApp
   ],
   imports: [
     HttpModule,
@@ -24,9 +20,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    TabsPage
-    //HomePage
+    MyApp
   ],
   providers: [
     TMDbService,
